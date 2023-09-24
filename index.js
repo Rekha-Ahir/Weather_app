@@ -1,5 +1,5 @@
 
-
+alert("hello")
 const mainfun = async (city) => {
     var p = await fetch("http://api.weatherapi.com/v1/current.json?key=7e4ea6a9783641f59cd72718231109&aqi=yes&q=" + city)
     var response = await p.json()
