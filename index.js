@@ -83,7 +83,7 @@ const forecast = async (city) => {
     document.getElementById('humidityt').innerHTML = y.avghumidity + "%"
     var n = document.getElementsByClassName("imagg")[0]
     document.getElementById('maxwind-kpht').innerHTML = y.maxwind_kph+ "kph"
-    document.getElementById('minwind-kpht').innerHTML = y.minwind_kph+ "kph"
+    document.getElementById('minwind-kpht').innerHTML = y.maxwind_mph+ "mph"
 
     if (typet === "Light rain") {
 
