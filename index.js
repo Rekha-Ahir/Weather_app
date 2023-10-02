@@ -1,13 +1,20 @@
 
 
-const mainfun = async (city) => {
-    var p = await fetch("http://api.weatherapi.com/v1/current.json?key=7e4ea6a9783641f59cd72718231109&aqi=yes&q=" + city)
-    var response = await p.json()
-
-    console.log(response)
 
 
 
+
+
+btn.addEventListener('click', (e) => {
+    e.preventDefault()
+   
+    forecast(inp.value)
+})
+const forecast = async (city) => {
+    let p = await fetch("http://api.weatherapi.com/v1/forecast.json?key=7e4ea6a9783641f59cd72718231109&days=6&aqi=yes&q=" + city)
+    let response = await p.json()
+
+    console.log("kal ka", response)
     document.getElementById("temp").innerHTML = response.current.temp_c + " °C"
     var typet = document.getElementById("cloudy").innerHTML = response.current.condition.text
 
@@ -20,11 +27,6 @@ const mainfun = async (city) => {
 
 
     var type = response.current.condition.text
-
-
-
-  
-  
     if (type == "Light rain possible") {
 
         x.src = "gif/Partly cloudy with rain.gif"
@@ -55,23 +57,11 @@ const mainfun = async (city) => {
         x.src = "gif/Cloudy.gif"
     }
 
-}
 
-
-mainfun("Delhi")
-
-btn.addEventListener('click', (e) => {
-    e.preventDefault()
-    mainfun(inp.value)
-    forecast(inp.value)
-})
-const forecast = async (city) => {
-    let p = await fetch("http://api.weatherapi.com/v1/forecast.json?key=7e4ea6a9783641f59cd72718231109&days=6&aqi=yes&q=" + city)
-    let response = await p.json()
-
-    console.log("kal ka", response)
 
     var y = response.forecast.forecastday[1].day
+    var nextd=response.forecast.forecastday[2].day
+    
 
 
 
@@ -79,6 +69,7 @@ const forecast = async (city) => {
     document.getElementById('conditiont').innerHTML = y.condition.text
     document.getElementById('max_temp').innerHTML = y.maxtemp_c+ " °C"
     document.getElementById('min_temp').innerHTML = y.mintemp_c+ " °C"
+    date.innerHTML=response.forecast.forecastday[1].date
 
     document.getElementById('humidityt').innerHTML = y.avghumidity + "%"
     var n = document.getElementsByClassName("imagg")[0]
@@ -109,6 +100,81 @@ const forecast = async (city) => {
     }
     else {
         n.src = "gif/Cloudy.gif"
+    }
+    // for next day
+    var ntypet = nextd.condition.text
+    ndate.innerHTML=response.forecast.forecastday[2].date
+    document.getElementById('nconditiont').innerHTML = nextd.condition.text
+    document.getElementById('nmax_temp').innerHTML = nextd.maxtemp_c+ " °C"
+    document.getElementById('nmin_temp').innerHTML = nextd.mintemp_c+ " °C"
+
+    document.getElementById('nhumidityt').innerHTML = nextd.avghumidity + "%"
+    var imt = document.getElementsByClassName("nimagg")[0]
+    console.log(imt)
+    document.getElementById('nmaxwind-kpht').innerHTML = nextd.maxwind_kph+ "kph"
+    document.getElementById('nminwind-kpht').innerHTML = nextd.maxwind_mph+ "mph"
+
+    if (ntypet === "Light rain") {
+
+        imt.src = "gif/Partly cloudy with rain.gif"
+    }
+    else if (ntypet === "Cloudy") {
+        imt.src = "gif/Cloudy.gif"
+    }
+    else if (ntypet === "Hail") {
+        imt.src = "gif/Hail.gif"
+    }
+    else if (ntypet === "Snow") {
+        imt.src = "gif/Snow.gif"
+    }
+    else if (ntypet === "Sunny") {
+
+        imt.src = "gif/Sunny.gif"
+    }
+    else if (ntypet === "Raining") {
+        imt.src = "gif/Raining.gif"
+    } else if (ntypet === "Patchy Raining") {
+        imt.src = "gif/Raining.gif"
+    }
+    else {
+        imt.src = "gif/Cloudy.gif"
+    }
+    // for  day
+    var ntypet = nextd.condition.text
+    document.getElementById('nconditiont').innerHTML = nextd.condition.text
+    document.getElementById('nmax_temp').innerHTML = nextd.maxtemp_c+ " °C"
+    document.getElementById('nmin_temp').innerHTML = nextd.mintemp_c+ " °C"
+
+    document.getElementById('nhumidityt').innerHTML = nextd.avghumidity + "%"
+    var imt = document.getElementsByClassName("nimagg")[0]
+    console.log(imt)
+    document.getElementById('nmaxwind-kpht').innerHTML = nextd.maxwind_kph+ "kph"
+    document.getElementById('nminwind-kpht').innerHTML = nextd.maxwind_mph+ "mph"
+
+    if (ntypet === "Light rain") {
+
+        imt.src = "gif/Partly cloudy with rain.gif"
+    }
+    else if (ntypet === "Cloudy") {
+        imt.src = "gif/Cloudy.gif"
+    }
+    else if (ntypet === "Hail") {
+        imt.src = "gif/Hail.gif"
+    }
+    else if (ntypet === "Snow") {
+        imt.src = "gif/Snow.gif"
+    }
+    else if (ntypet === "Sunny") {
+
+        imt.src = "gif/Sunny.gif"
+    }
+    else if (ntypet === "Raining") {
+        imt.src = "gif/Raining.gif"
+    } else if (ntypet === "Patchy Raining") {
+        imt.src = "gif/Raining.gif"
+    }
+    else {
+        imt.src = "gif/Cloudy.gif"
     }
 
 }

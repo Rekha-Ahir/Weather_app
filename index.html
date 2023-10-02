@@ -4,204 +4,139 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <title>Weather App</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet"
+  
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="./style.css"/>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
   </style>
-  <style>
-    * {
-      margin: 0%;
-      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-      padding: 0%;
-      font-size: 1rem;
-    background:url(./background.jpg);
-background-attachment: fixed;
-background-size: cover;
-background-repeat: no-repeat;
-    }
-body{
-  background:url(./background.jpg);
-background-attachment: fixed;
-background-size: cover;
-background-repeat: no-repeat;
-}
-    header {
-      margin: auto;
-      font-size: 2rem;
-    }
-
-   .navbar{
-    margin:1rem 4rem 1rem 4rem;
-   }
-
-  #head {
-    position: relative;
-    
-      width: 100%;
-      height: 100vh;
-     
-    
-     
-    }
-    
-    .cardme{
-      position: relative;
-    
-      padding: 2%;
-      margin: auto;
-       
-    font-size: large;
-
-    }
-    .sym{
-font-size: 3rem;
-    }
-    .imag {
-    border-radius: 36%;
-    width: 20%;
-}
-    img.imagg {
   
-      border-radius: 36%;
-      width: 19%;
-    height: 9%;
-}
-    .box{
-      margin:6rem;
-    }
-    .txt{
-      color: white;
-      font-size: 3rem;
-      font-family: 'Ubuntu', sans-serif;
-    }
-   
-    .list-group li{
-      background-color: #0d0d99;
-color: white;
-font-size: 1.8rem;
-font-family: 'Ubuntu', sans-serif;
-
-    }
-    .list-group li p{
-      font-size: 1.8rem;
-      background-color: #3e3ec8;
-    
-      color: blue;
-      font-family: 'Teko', sans-serif;
-    }
-    .txt2{
-      color: blue;
-      font-family: 'Teko', sans-serif;
-    }
-  </style>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
 
 <body>
   <header>
-  
+
 
 
     <nav class="navbar bg-body-black navbar-dark bg-primary">
       <div class="container-fluid">
-        <a  style="font-size: 3rem;" class="navbar-brand"><span class="material-symbols-outlined sym">
-          cloud
+        <a style="font-size: 3rem;" class="navbar-brand"><span class="material-symbols-outlined sym">
+            cloud
           </span>Weather</a>
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" id="inp" placeholder="Enter city name" aria-label="Search">
-          <button  type="button" class="btn btn-outline-primary" id="btn" >Search</button>
+          <button type="button" class="btn btn-outline-primary" id="btn">Search</button>
         </form>
       </div>
     </nav>
   </header>
-   
+
 
   <main id="head">
     <section class="box">
       <div class=" cardme" style="width: 35rem; ">
         <img src="" class=" imag" alt="..." width="30%" height="40%">
-        
-        <div class="card-body">
-          <h2 class="card-title txt "id="cityname" >Card title</h2>
 
-          
-            <h6 class="card-text txt2 " >Temperature <p id="temp" class="txt"></p>
-            
-            
-            </h6 >
+        <div class="card-body">
+          <h2 class="card-title txt " id="cityname">Card title</h2>
+
+
+          <h6 class="card-text txt2 ">Temperature <p id="temp" class="txt"></p>
+
+
+          </h6>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item "> weather condition<p id="cloudy" class="txt">weather condition</p></li>
-          <li class="list-group-item " ><span class="material-symbols-outlined">
-            humidity_percentage
-            </span>Humidity<p id="humidity" >Humidity</p></li>
+          <li class="list-group-item "> weather condition<p id="cloudy" class="txt">weather condition</p>
+          </li>
+          <li class="list-group-item "><span class="material-symbols-outlined">
+              humidity_percentage
+            </span>Humidity<p id="humidity">Humidity</p>
+          </li>
           <li class="list-group-item"><span class="material-symbols-outlined">
-            air
-           </span> wind speed<p id="wind-kph"></p> 
-           
+              air
+            </span> wind speed<p id="wind-kph"></p>
+
           </li>
         </ul>
-       
-      <!-- </div> <div class="dropdown">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-      Pressure
-        </a>
-      
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <li>pressure<a class="dropdown-item" id="pressure"></a></li>
-          <li>pressure<a class="dropdown-item" id="pressure">Another action</a></li>
-          <li>pressure<a class="dropdown-item" id="pressure">Something else here</a></li>
-        </ul>
-      </div>
-      </div> <div class="dropdown">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-      Pressure
-        </a>
-      
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <li>pressure<a class="dropdown-item" id="pressure"></a></li>
-          <li>pressure<a class="dropdown-item" id="pressure">Another action</a></li>
-          <li>pressure<a class="dropdown-item" id="pressure">Something else here</a></li>
-        </ul>
-      </div> -->
-    </section>
-    <section class="box">
-      <div class="container ">
 
-      
-        <div class="row">
-          <div class="col-lg-4">
-            <h2>Tomorrow</h2>
-            
-            <img src="..." class=" imagg " alt="..." width="30%" height="36%">
        
+    </section>
+    <section class="box1">
+      <div class="container marketing">
+
+
+        <div class="row">
+
+          <div class="col-lg-6">
+            <h2 id="date">Tomorrow</h2>
+
+            <img src="..." class=" imagg " alt="..." width="30%" height="36%">
+
             <ul class="list-group list-group-flush">
-              <li class="list-group-item "> weather condition<p id="conditiont">weather condition</p></li>
-              <li class="list-group-item "> max_temp<p id="max_temp"></p></li>
-              <li class="list-group-item "> min_temp<p id="min_temp"></p></li>
-              <li class="list-group-item " ><span class="material-symbols-outlined">
-                humidity_percentage
-                </span>Humidity<p id="humidityt" >Humidity</p></li>
+              <li class="list-group-item "> weather condition<p id="conditiont">weather condition</p>
+              </li>
+              <li class="list-group-item "> max_temp<p id="max_temp"></p>
+              </li>
+              <li class="list-group-item "> min_temp<p id="min_temp"></p>
+              </li>
+              <li class="list-group-item "><span class="material-symbols-outlined">
+                  humidity_percentage
+                </span>Humidity<p id="humidityt">Humidity</p>
+              </li>
               <li class="list-group-item"><span class="material-symbols-outlined">
-                air
-               </span> wind speed<p id="minwind-kpht"></p>
+                  air
+                </span> wind speed<p id="minwind-kpht"></p>
               <li class="list-group-item"><span class="material-symbols-outlined">
-                air
-               </span> wind speed<p id="maxwind-kpht"></p>
+                  air
+                </span> wind speed<p id="maxwind-kpht"></p>
               </li>
             </ul>
             <p><a class="btn btn-secondary" href="#">View details »</a></p>
 
           </div>
-          <hr class="featurette-divider">
-    
-         
-    
-       
-    
-    
+          <!-- for next day -->
+
+
+          <div class="col-lg-6">
+            <h2 id="ndate"></h2>
+
+            <img src="..." class=" nimagg " alt="..." width="30%" height="36%">
+
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item "> weather condition<p id="nconditiont">weather condition</p>
+              </li>
+              <li class="list-group-item "> max_temp<p id="nmax_temp"></p>
+              </li>
+              <li class="list-group-item "> min_temp<p id="nmin_temp"></p>
+              </li>
+              <li class="list-group-item "><span class="material-symbols-outlined">
+                  humidity_percentage
+                </span>Humidity<p id="nhumidityt">Humidity</p>
+              </li>
+              <li class="list-group-item"><span class="material-symbols-outlined">
+                  air
+                </span> wind speed<p id="nminwind-kpht"></p>
+              <li class="list-group-item"><span class="material-symbols-outlined">
+                  air
+                </span> wind speed<p id="nmaxwind-kpht"></p>
+              </li>
+            </ul>
+            <p><a class="btn btn-secondary" href="#">View details »</a></p>
+
+          </div>
+
+
+
+
+
+        </div>
       </div>
     </section>
 
